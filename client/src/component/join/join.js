@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-
+import "./style.scss";
 const Join = () => {
   const [name, setName] = useState("");
   const [room, setRoom] = useState("");
@@ -10,7 +10,7 @@ const Join = () => {
         <h1 className="heading">Join</h1>
         <div>
           <input
-            placeholder=""
+            placeholder="Name"
             className="joinInput"
             type="text"
             value={name}
@@ -19,7 +19,7 @@ const Join = () => {
         </div>
         <div>
           <input
-            placeholder=""
+            placeholder="Room Number"
             className="joinInput"
             type="text"
             value={room}

@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Chat } from "./component/chat";
 import { Join } from "./component/join";
-
+import "./style.scss";
 const App = () => {
   return (
     <Router>

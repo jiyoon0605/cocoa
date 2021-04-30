@@ -1,13 +1,18 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import "./style.scss";
 const Join = () => {
   const [name, setName] = useState("");
   const [room, setRoom] = useState("");
+  const history = useHistory();
+
   return (
     <div className="joinOuterContainer">
-      <div className="joinInnerContainer">
-        <h1 className="heading">Join</h1>
+      <form className="joinInnerContainer">
+        <h1 className="heading">
+          Join To <br />
+          pongdang!
+        </h1>
         <div>
           <input
             placeholder="Name"
@@ -26,15 +31,18 @@ const Join = () => {
             onChange={(e) => setRoom(e.target.value)}
           />
         </div>
-        <Link
-          onClick={(e) => (!name || !room) && e.preventDefault()}
-          to={`/chat?name=${name}&room=${room}`}
+        <button
+          onClick={(e) =>
+            !name || !room
+              ? e.preventDefault()
+              : history.push(`/chat?name=${name}&room=${room}`)
+          }
           className="button mt-20"
           type="submit"
         >
           Sign in
-        </Link>
-      </div>
+        </button>
+      </form>
     </div>
   );
 };

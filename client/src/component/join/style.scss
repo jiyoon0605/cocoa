@@ -15,8 +15,9 @@
   align-items: center;
 }
 .joinInnerContainer {
-  width: 25rem;
-  height: 20rem;
+  margin: 1rem;
+  width: 30rem;
+  height: 25rem;
   background-color: rgba(255, 255, 255, 0.2);
   border-radius: 20px;
   display: flex;
@@ -25,14 +26,14 @@
   align-items: center;
   box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.4);
   box-sizing: border-box;
-  padding: 0 20px;
+  padding: 0 50px;
   div {
     width: 100%;
     display: flex;
     input {
       font-family: "yg-jalnan";
       width: 100%;
-      height: 2.5rem;
+      height: 3rem;
       margin-top: 0.5rem;
       outline: none;
       border: none;
@@ -40,12 +41,22 @@
       box-shadow: inset 1px 1px 3px 0 rgba(0, 0, 0, 0.4);
       box-sizing: border-box;
       padding: 0 10px;
+      text-align: center;
+      font-size: 1.5rem;
     }
     ::placeholder {
       color: rgb(200, 200, 200);
     }
   }
   border: 1px solid rgba(255, 255, 255, 0.5);
+
+  a:active {
+    transition: transform 0.1s;
+    transform: scale(1.05);
+  }
+  input:focus {
+    box-shadow: 1px 1px 3px 0 rgba(0, 0, 0, 0.4);
+  }
 }
 
 .heading {
@@ -54,9 +65,11 @@
   text-transform: uppercase;
   font-size: 3rem;
   margin-bottom: 2rem;
+  text-align: center;
+  line-height: 50px;
 }
 
-a {
+button {
   font-family: "yg-jalnan";
   width: 100%;
   padding: 10px 0;
@@ -69,4 +82,5 @@ a {
   border-radius: 20px;
   text-align: center;
   text-transform: uppercase;
+  background-color: transparent;
 }

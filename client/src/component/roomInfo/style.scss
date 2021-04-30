@@ -1,0 +1,19 @@
+@font-face {
+  font-family: "yg-jalnan";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.infoBar {
+  width: 100vw;
+  height: 5rem;
+  background-color: rgba(255, 255, 255, 0.3);
+  display: flex;
+  justify-content: space-between;
+  color: white;
+
+  box-sizing: border-box;
+  padding: 1rem;
+}

@@ -4,6 +4,7 @@ import io from "socket.io-client";
 import { RoomInfo } from "../roomInfo";
 import { Input } from "../input";
 import { Messages } from "../messages";
+import { useHistory } from "react-router-dom";
 import "./style.scss";
 let socket;
 
@@ -13,6 +14,7 @@ const Chat = ({ location }) => {
   const [message, setMessage] = useState("");
   const [messages, setMessages] = useState([]);
   const ENDPOINT = "localhost:5000";
+  const history = useHistory();
 
   useEffect(() => {
     const { name, room } = queryString.parse(location.search);
@@ -27,7 +29,7 @@ const Chat = ({ location }) => {
     });
 
     return () => {
-      socket.emit("disconnect", () => {
+      socket.emit("disconnected", () => {
         alert(`${room}을 떠났습니다.`);
       });
       socket.off();
@@ -48,10 +50,18 @@ const Chat = ({ location }) => {
     }
   };
 
+  const leftRoom = () => {
+    socket.emit("disconnected", () => {
+      alert(`${room}을 떠났습니다.`);
+    });
+    socket.off();
+    history.push("/");
+  };
+
   return (
     <div className="outerContainer">
       <div className="innerContainer">
-        <RoomInfo room={room} />
+        <RoomInfo room={room} leftRoom={leftRoom} />
         <Messages messages={messages} name={name} />
         <Input
           message={message}

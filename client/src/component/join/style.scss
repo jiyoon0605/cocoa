@@ -57,6 +57,22 @@
   input:focus {
     box-shadow: 1px 1px 3px 0 rgba(0, 0, 0, 0.4);
   }
+
+  button {
+    font-family: "yg-jalnan";
+    width: 100%;
+    padding: 10px 0;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    margin: 0 20px;
+    border-radius: 20px;
+    margin-top: 2rem;
+    text-decoration: none;
+    color: white;
+    border-radius: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    background-color: transparent;
+  }
 }
 
 .heading {
@@ -67,20 +83,4 @@
   margin-bottom: 2rem;
   text-align: center;
   line-height: 50px;
-}
-
-button {
-  font-family: "yg-jalnan";
-  width: 100%;
-  padding: 10px 0;
-  border: 2px solid rgba(255, 255, 255, 0.8);
-  margin: 0 20px;
-  border-radius: 20px;
-  margin-top: 2rem;
-  text-decoration: none;
-  color: white;
-  border-radius: 20px;
-  text-align: center;
-  text-transform: uppercase;
-  background-color: transparent;
 }

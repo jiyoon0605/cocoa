@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import queryString from "query-string";
 import io from "socket.io-client";
 import { RoomInfo } from "../roomInfo";
+import { Input } from "../input";
+import { Messages } from "../messages";
 import "./style.scss";
 let socket;
 
@@ -20,20 +22,24 @@ const Chat = ({ location }) => {
     setRoom(room);
     console.log(socket);
 
-    socket.emit("join", { name, room }, () => {});
+    socket.emit("join", { name, room }, () => {
+      alert(`${room}에 입장하셨습니다.`);
+    });
 
     return () => {
-      socket.emit("disconnect");
+      socket.emit("disconnect", () => {
+        alert(`${room}을 떠났습니다.`);
+      });
       socket.off();
     };
   }, [ENDPOINT, location.search]);
 
   useEffect(() => {
     socket.on("message", (msg) => {
-      console.log(msg);
-      setMessages([...messages, msg]);
+      setMessages((messages) => [...messages, msg]);
+      console.log(messages);
     });
-  }, [messages]);
+  }, []);
 
   const sendMessage = (e) => {
     e.preventDefault();
@@ -42,15 +48,15 @@ const Chat = ({ location }) => {
     }
   };
 
-  console.log(message, messages);
   return (
     <div className="outerContainer">
-      <RoomInfo room={room} />
       <div className="innerContainer">
-        <input
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-          onKeyPress={(e) => e.key === "Enter" && sendMessage(e)}
+        <RoomInfo room={room} />
+        <Messages messages={messages} name={name} />
+        <Input
+          message={message}
+          setMessage={setMessage}
+          sendMessage={sendMessage}
         />
       </div>
     </div>

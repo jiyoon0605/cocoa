@@ -7,7 +7,33 @@
 }
 
 .outerContainer {
-  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   height: 100vh;
-  background-color: white;
+  background: linear-gradient(90deg, #efd5ff 0%, #515ada 100%);
+}
+.innerContainer {
+  width: 30rem;
+  height: 40rem;
+  border-radius: 10px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.09709394011510852) 0%,
+    rgba(255, 255, 255, 0.5312676095828957) 100%
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+@media (min-width: 320px) and (max-width: 480px) {
+  .outerContainer {
+    height: 100%;
+  }
+
+  .container {
+    width: 100%;
+    height: 100%;
+  }
 }

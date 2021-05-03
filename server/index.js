@@ -14,7 +14,7 @@ const server = http.createServer(app);
 
 const io = socketio(server, {
   cors: {
-    origin: ["http://localhost:3000"],
+    origin: ["https://stoic-galileo-1f7617.netlify.app"],
     methods: ["GET", "POST"],
   },
 });
@@ -60,6 +60,15 @@ io.on("connect", (socket) => {
   });
 });
 
-app.use(cors);
+// const corsOption = {
+//   origin: true,
+//   Credential: true,
+// };
+
+//app.use(cors);
 app.use(router);
+
+app.get("/", (req, res) => {
+  return res.status(200).send(`server is running ${process.env.PORT} port`);
+});
 server.listen(PORT, () => console.log(`Server started on port ${PORT}`));

@@ -13,7 +13,7 @@ const Chat = ({ location }) => {
   const [room, setRoom] = useState("");
   const [message, setMessage] = useState("");
   const [messages, setMessages] = useState([]);
-  const ENDPOINT = "https://pong-dang.herokuapp.com/";
+  const ENDPOINT = "https://pong-dang.herokuapp.com";
   const history = useHistory();
 
   useEffect(() => {
@@ -41,7 +41,8 @@ const Chat = ({ location }) => {
       setMessages((messages) => [...messages, msg]);
       console.log(messages);
     });
-  }, [messages]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const sendMessage = (e) => {
     e.preventDefault();

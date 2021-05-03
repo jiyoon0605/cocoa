@@ -4,7 +4,8 @@ import ScrollToBottom from "react-scroll-to-bottom";
 const Messages = ({ messages, name }) => {
   useEffect(() => {
     console.log(messages, name);
-  }, [messages, name]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [messages]);
   return (
     <ScrollToBottom className="messageContainer">
       {messages.map((e, i) =>

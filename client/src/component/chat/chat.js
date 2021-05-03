@@ -41,7 +41,7 @@ const Chat = ({ location }) => {
       setMessages((messages) => [...messages, msg]);
       console.log(messages);
     });
-  }, []);
+  }, [messages]);
 
   const sendMessage = (e) => {
     e.preventDefault();

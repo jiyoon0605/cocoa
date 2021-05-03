@@ -4,7 +4,7 @@ import ScrollToBottom from "react-scroll-to-bottom";
 const Messages = ({ messages, name }) => {
   useEffect(() => {
     console.log(messages, name);
-  }, [messages]);
+  }, [messages, name]);
   return (
     <ScrollToBottom className="messageContainer">
       {messages.map((e, i) =>
